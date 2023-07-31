@@ -208,19 +208,11 @@ public class AutoClicker implements ModInitializer {
 
     private void attemptMobAttack(MinecraftClient mc, Holding key) {
         // Don't attack on a right click
-        if (key.getKey() != leftHolding.getKey()) {
-            return;
-        }
-
-        HitResult rayTrace = mc.crosshairTarget;
-        if (rayTrace instanceof EntityHitResult && mc.interactionManager != null) {
-            mc.interactionManager.attackEntity(mc.player, ((EntityHitResult) rayTrace).getEntity());
-        }
+        return;
     }
 
     private boolean isPlayerLookingAtMob(MinecraftClient mc) {
-        HitResult rayTrace = mc.crosshairTarget;
-        return rayTrace instanceof EntityHitResult && ((EntityHitResult) rayTrace).getEntity() instanceof LivingEntity;
+        return false;
     }
 
     private void keyInputEvent(MinecraftClient mc) {
